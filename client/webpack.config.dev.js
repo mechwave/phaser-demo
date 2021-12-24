@@ -46,10 +46,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.posix.join(
-            path.resolve(__dirname, 'static').replace(/\\/g, '/'),
-            '*'
-          ),
+          from: path.posix.join(path.resolve(__dirname, 'static').replace(/\\/g, '/'), '*'),
           to: path.resolve(__dirname, 'build'),
         }
       ]

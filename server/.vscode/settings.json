@@ -1,0 +1,14 @@
+{
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "files.exclude": {
+        "**/.venv*": true,
+        "**/.mypy_cache": true,
+        "**/__pycache__/**": true
+    },
+    "python.venvPath": ".venv",
+    "python.pythonPath": ".venv/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pydocstyleEnabled": true
+}

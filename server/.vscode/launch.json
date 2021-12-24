@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+    "name": "Flask (DEBUG)",
+    "type": "python",
+    "request": "launch",
+    "module": "flask",
+    "env": {
+      "FLASK_APP": "${workspaceFolder}/src/debug.py",
+      "FLASK_ENV": "development",
+      "FLASK_DEBUG": "1",
+      "DB_URI": "postgresql+psycopg2://postgres@localhost:5432/test"
+    },
+    "args": [
+      "run",
+      "--no-debugger",
+      "--no-reload"
+    ],
+    "jinja": true
+  }]
+}
