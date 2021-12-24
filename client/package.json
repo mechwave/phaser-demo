@@ -1,0 +1,9 @@
+{
+    "name": "phaser-demo",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "npx webpack serve --config ./webpack.config.dev.js"
+      }
+  }
+  

@@ -3,13 +3,13 @@
 #---------------------------------------#
 
 # output
-/.temp
-/.tmp
-/build
-/dist
+**/.temp
+**/.tmp
+**/build
+**/dist
 
 # dependencies
-/node_modules
+**/node_modules
 .package.swp
 
 # linters
@@ -33,7 +33,7 @@
 *.log
 ### Python ###
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**/__pycache__
 *.py[cod]
 *$py.class
 
@@ -127,13 +127,12 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+**/.env
+**/.venv
+**/env/
+**/venv
+**/ENV/
+
 
 # Spyder project settings
 .spyderproject
