@@ -48,6 +48,7 @@ module.exports = {
         {
           from: path.posix.join(path.resolve(__dirname, 'static').replace(/\\/g, '/'), '*'),
           to: path.resolve(__dirname, 'build'),
+          noErrorOnMissing: true
         }
       ]
     }),
@@ -57,5 +58,11 @@ module.exports = {
     hot: true,
     port: 3000,
     compress: true,
+    historyApiFallback: true,
+    proxy: {
+        '/api': {
+            target: 'http://localhost:5000/api'
+        },
+    }
   },
 }

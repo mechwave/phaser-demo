@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "start": "npx webpack serve --config ./webpack.config.dev.js"
+        "start": "npx webpack serve --config ./webpack.config.js",
+        "build": "npx webpack --config ./webpack.config.js --mode=development"
       }
   }
   
