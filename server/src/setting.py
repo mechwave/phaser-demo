@@ -6,7 +6,7 @@ from app.tools.setting import BaseConfig
 class ProdConfig(BaseConfig):
     """Production configuration."""
 
-    DB_URI = os.environ["DB_URI"]
+    SQLALCHEMY_DATABASE_URI = os.environ["SQLALCHEMY_DATABASE_URI"]
     SWAGGER = {
         "swagger": "2.0",
         "info": {

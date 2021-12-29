@@ -10,7 +10,7 @@
       "FLASK_APP": "${workspaceFolder}/src/debug.py",
       "FLASK_ENV": "development",
       "FLASK_DEBUG": "1",
-      "DB_URI": "postgresql+psycopg2://postgres@localhost:5432/test"
+      "SQLALCHEMY_DATABASE_URI": "postgresql+psycopg2://postgres:password@localhost:5432/test"
     },
     "args": [
       "run",

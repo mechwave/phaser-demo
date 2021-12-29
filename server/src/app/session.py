@@ -14,7 +14,7 @@ Session = sessionmaker()
 @contextmanager
 def session_scope(session: SessionSQLA = Session) -> SessionSQLA:
     """Provide a transactional scope around a series of operations."""
-    db_uri = current_app.config.get('DB_URI', '')
+    db_uri = current_app.config.get('SQLALCHEMY_DATABASE_URI', '')
     session.configure(bind=create_engine(db_uri, client_encoding='utf8', poolclass=NullPool))
     sess = session()
     try:
