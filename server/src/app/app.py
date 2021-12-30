@@ -31,6 +31,6 @@ def get_app(config) -> Flask:
 
     from sqlalchemy import create_engine
     from .models.map import Base
-    Base.metadata.create_all(create_engine(app.config.get('DB_URI', '')))
+    Base.metadata.create_all(create_engine(app.config.get('SQLALCHEMY_DATABASE_URI', '')))
 
     return app
