@@ -3,6 +3,8 @@ import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import serve from 'rollup-plugin-serve';
 import typescript from 'rollup-plugin-typescript2';
+import dts from "rollup-plugin-dts";
+import { babel } from '@rollup/plugin-babel';
 
 export default {
 
@@ -20,11 +22,10 @@ export default {
         format: 'iife',
         sourcemap: true,
         intro: 'var global = window;',
-        external: ['axios']
+        // external: ['axios']
     },
 
     plugins: [
-
         //  Toggle the booleans here to enable / disable Phaser 3 features:
         replace({
             'typeof CANVAS_RENDERER': JSON.stringify(true),
@@ -34,7 +35,8 @@ export default {
             'typeof PLUGIN_FBINSTANT': JSON.stringify(false),
             'typeof FEATURE_SOUND': JSON.stringify(true)
         }),
-
+        dts(),
+        //babel({ babelHelpers: 'bundled' }),
         //  Parse our .ts source files
         resolve({
             extensions: [ '.ts', '.tsx' ]
@@ -55,7 +57,7 @@ export default {
 
         //  See https://www.npmjs.com/package/rollup-plugin-typescript2 for config options
         typescript({
-            outDir: "./dist"
+            //outDir: "./dist"
         }),
 
         //  See https://www.npmjs.com/package/rollup-plugin-serve for config options

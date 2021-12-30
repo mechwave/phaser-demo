@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
 import typescript from 'rollup-plugin-typescript2';
+import { babel } from '@rollup/plugin-babel';
 
 export default {
 
@@ -34,7 +35,7 @@ export default {
             'typeof PLUGIN_FBINSTANT': JSON.stringify(false),
             'typeof FEATURE_SOUND': JSON.stringify(true)
         }),
-
+        babel({ babelHelpers: 'bundled' }),
         //  Parse our .ts source files
         resolve({
             extensions: [ '.ts', '.tsx' ]

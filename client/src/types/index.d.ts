@@ -1,5 +1,7 @@
 import { AxiosInterceptorManager, AxiosError, CancelStatic, CancelTokenStatic, AxiosResponse, AxiosPromise, AxiosRequestConfig } from 'axios'
 
+declare const axios: AxiosStatic;
+
 export interface AxiosInstance {
     (config: AxiosRequestConfig): AxiosPromise;
     (url: string, config?: AxiosRequestConfig): AxiosPromise;
@@ -28,11 +30,10 @@ export interface AxiosStatic extends AxiosInstance {
     spread<T, R>(callback: (...args: T[]) => R): (array: T[]) => R;
     isAxiosError(payload: any): payload is AxiosError;
 }
-  
-declare const axios: AxiosStatic;
 
 export interface IAPIProvider {
     options? : AxiosRequestConfig,
     _axios: AxiosInstance
     getUser(): AxiosPromise<string>
 }
+
