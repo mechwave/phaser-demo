@@ -1,38 +1,40 @@
 {
-    "name": "phaser3-typescript-project-template",
-    "version": "1.0.2",
-    "description": "A Phaser 3 Project Template using Rollup and TypeScript",
-    "main": "src/game.ts",
-    "scripts": {
-        "dev": "rollup --config rollup.config.dev.js",
-        "build": "rollup --config rollup.config.dist.js",
-        "watch": "rollup --watch --config rollup.config.dev.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/photonstorm/phaser3-typescript-project-template.git"
-    },
-    "author": "Richard Davey <rich@photonstorm.com> (http://www.photonstorm.com)",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/photonstorm/phaser3-typescript-project-template/issues"
-    },
-    "homepage": "https://github.com/photonstorm/phaser3-typescript-project-template#readme",
-    "dependencies": {
-        "axios": "^0.24.0"
-    },
-    "devDependencies": {
-        "@rollup/plugin-babel": "^5.3.0",
-        "@rollup/plugin-replace": "^2.3.4",
-        "phaser": "^3.50.0",
-        "rollup": "^2.55",
-        "rollup-plugin-commonjs": "^10.1.0",
-        "rollup-plugin-dts": "^4.1.0",
-        "rollup-plugin-node-resolve": "^5.2.0",
-        "rollup-plugin-serve": "^1.1.0",
-        "rollup-plugin-serve-proxy": "^1.1.4",
-        "rollup-plugin-typescript2": "^0.29.0",
-        "rollup-plugin-uglify": "^6.0.4",
-        "typescript": "^4.2.3"
-    }
+  "name": "hexa-battle",
+  "version": "0.1.1",
+  "description": "",
+  "scripts": {
+    "build": "npm run webpack",
+    "dev": "DEV_SERVER=true webpack-dev-server --hot --inline --progress",
+    "lint": "tslint --project tsconfig.json",
+    "start": "npm run dev-server",
+    "test": "npm run lint && npm run build",
+    "webpack": "NODE_ENV=production webpack -p --progress"
+  },
+  "author": "Giacomo Tagliabue",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aphrodite": "^0.5.5",
+    "@types/color": "^1.0.0",
+    "@types/react": "^15.0.16",
+    "@types/react-dom": "^0.14.23",
+    "extract-svg-path": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "lodash": "^4.17.4",
+    "source-map-loader": "^0.2.0",
+    "ts-loader": "^2.0.1",
+    "tslint": "^4.5.1",
+    "typescript": "2.3.4",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
+    "webpack-merge": "^4.0.0"
+  },
+  "dependencies": {
+    "animejs": "^2.0.1",
+    "aphrodite": "^1.1.0",
+    "axios": "^0.24.0",
+    "color": "^1.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "store": "^2.0.4"
+  }
 }
