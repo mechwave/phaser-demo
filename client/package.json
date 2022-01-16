@@ -4,11 +4,14 @@
   "description": "",
   "scripts": {
     "build": "npm run webpack",
+    "build1": "npm run webpack1",
     "dev": "DEV_SERVER=true webpack-dev-server --hot --inline --progress",
+    "dev1": "set DEV_SERVER=true && webpack-dev-server --hot --inline --progress",
     "lint": "tslint --project tsconfig.json",
     "start": "npm run dev-server",
     "test": "npm run lint && npm run build",
-    "webpack": "NODE_ENV=production webpack -p --progress"
+    "webpack": "NODE_ENV=production webpack -p --progress",
+    "webpack1": "set NODE_ENV=production && webpack -p --progress"
   },
   "author": "Giacomo Tagliabue",
   "license": "MIT",

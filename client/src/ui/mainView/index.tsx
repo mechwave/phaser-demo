@@ -39,17 +39,19 @@ interface IProps {
 interface IState {
   showShop: boolean
   showHelp: boolean
+  username: string
 }
 
 export default class MainView extends React.Component<IProps, IState> {
   state = {
     showShop: false,
     showHelp: false,
+    username: 'user'
   }
   username = 'user'
-  componentDidUpdated() {
+  componentDidMount() {
     UserAPI.getCurrent().then( res => {
-      this.username = res.name
+      this.setState({username: res.name})
     })
   }
 
@@ -111,7 +113,7 @@ export default class MainView extends React.Component<IProps, IState> {
         {shop}
         {help}
         <h1>Hexa Battle</h1>
-        <h2>{this.username}</h2>
+        <h2>{this.state.username}</h2>
         <h2 className={css(styles.button)} onClick={this.onStartLevel}>
           {levelReached ? 'Venture Deeper' : 'Start your adventure'}
         </h2>

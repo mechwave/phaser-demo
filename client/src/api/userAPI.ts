@@ -9,21 +9,18 @@
 //     //     },
 //     //baseURL: 'localhost:5000'
 //  });
- 
+const checkForError = response => {
+  if (!response.ok) throw Error(response.statusText);
+  return response.json();
+};
+
 export const UserAPI = {
     getCurrent: function() {
         return fetch('/api/user/current')
+        .then(checkForError)
         .then((response) => {
-          return response.json();
+          console.log(response)
+          return response;
         })
-        .then((data) => {
-          return data;
-        });
-        // return axiosInstance.request({
-        //     method: "GET",
-        //     url: `/api/user/current`
-        // }).then( response => {
-        //     return response.data.name
-        // });
     }
 }
