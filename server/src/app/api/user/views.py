@@ -5,7 +5,7 @@ from flask import Blueprint, request
 from flask.views import MethodView
 from sqlalchemy.sql import func, select
 
-from . import schemas as user_schemas
+from ...models import schemas as base_schemas
 from . import service as user_service
 from ...tools.flasgger_marshmallow import swagger_decorator
 from ...session import session_scope
@@ -16,7 +16,7 @@ user_blueprint = Blueprint('user', __name__)
 class UserCurrentGet(MethodView):
     """Get user current."""
 
-    @swagger_decorator(response_schema={200: user_schemas.UserResponseSchema})
+    @swagger_decorator(response_schema={200: base_schemas.UserSchema}, tag_name = "User")
     def get(self):
         """Get user info."""
         user = user_service.get_user()
