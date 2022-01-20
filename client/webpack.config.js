@@ -11,8 +11,9 @@ let config = {
   entry: './src/index.tsx',
 
   output: {
-    path: path.resolve('./build'),
-    publicPath: '/static/',
+    //path: path.resolve('./build'),
+    path: path.resolve('../server/src/app/templates'),
+    //publicPath: '/static/',
     filename: 'bundle.js',
   },
 

@@ -1,10 +1,10 @@
 """App."""
 
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, send_from_directory
 
 
 def internal_server_error(e):
-    return 'ой', 500
+    return 'oops', 500
 
 
 def get_app(config) -> Flask:

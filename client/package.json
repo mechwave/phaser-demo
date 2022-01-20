@@ -1,6 +1,6 @@
 {
-  "name": "hexa-battle",
-  "version": "0.1.1",
+  "name": "hex-game-construstor",
+  "version": "0.0.1",
   "description": "",
   "scripts": {
     "build": "npm run webpack",
@@ -13,7 +13,7 @@
     "webpack": "NODE_ENV=production webpack -p --progress",
     "webpack1": "set NODE_ENV=production && webpack -p --progress"
   },
-  "author": "Giacomo Tagliabue",
+  "author": "Eugene Gostyukhin",
   "license": "MIT",
   "devDependencies": {
     "@types/aphrodite": "^0.5.5",

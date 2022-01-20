@@ -1,0 +1,31 @@
+version: "3"
+services:
+  db:
+    container_name: database
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password 
+      POSTGRES_USER: postgres
+      POSTGRES_DB: test
+    volumes:
+      - "C:/temp/postgres_data:/var/lib/postgresql/data"
+  app:
+    container_name: application
+    #image: hex_game_constructor:latest
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - 80:80
+      - 81:81
+    environment:
+      - PYTHONPATH=/src/app/
+      - SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://postgres:password@database:5432/test
+      - PYTHONUNBUFFERED=True
+  
