@@ -1,43 +1,61 @@
 {
-  "name": "hex-game-construstor",
-  "version": "0.0.1",
-  "description": "",
+  "name": "phaser-project-template",
+  "version": "3.55.2",
+  "description": "Phaser 3 starter template with TypeScript and webpack.",
+  "homepage": "https://github.com/yandeu/phaser-project-template#readme",
+  "main": "index.js",
   "scripts": {
-    "build": "npm run webpack",
-    "build1": "npm run webpack1",
-    "dev": "DEV_SERVER=true webpack-dev-server --hot --inline --progress",
-    "dev1": "set DEV_SERVER=true && webpack-dev-server --hot --inline --progress",
-    "lint": "tslint --project tsconfig.json",
-    "start": "npm run dev-server",
-    "test": "npm run lint && npm run build",
-    "webpack": "NODE_ENV=production webpack -p --progress",
-    "webpack1": "set NODE_ENV=production && webpack -p --progress"
+    "start": "webpack serve --config webpack/webpack.dev.js",
+    "build": "rimraf dist && webpack --config webpack/webpack.prod.js",
+    "bundle": "npm run build",
+    "serve": "serve dist",
+    "format": "prettier --check src/scripts/**",
+    "format:write": "prettier --write src/scripts/**"
   },
-  "author": "Eugene Gostyukhin",
+  "keywords": [
+    "Phaser",
+    "Phaser 3",
+    "Phaser3",
+    "html5 game",
+    "TypeScript",
+    "webpack",
+    "starter"
+  ],
+  "author": {
+    "name": "Yannick Deubel",
+    "url": "https://github.com/yandeu"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yandeu/phaser-project-template.git"
+  },
+  "template": {
+    "name": "phaser-project-template",
+    "url": "https://github.com/yandeu/phaser-project-template",
+    "author": "Yannick Deubel (https://github.com/yandeu)"
+  },
+  "engines": {
+    "node": ">=12"
+  },
   "license": "MIT",
-  "devDependencies": {
-    "@types/aphrodite": "^0.5.5",
-    "@types/color": "^1.0.0",
-    "@types/react": "^15.0.16",
-    "@types/react-dom": "^0.14.23",
-    "extract-svg-path": "^2.1.0",
-    "html-webpack-plugin": "^2.28.0",
-    "lodash": "^4.17.4",
-    "source-map-loader": "^0.2.0",
-    "ts-loader": "^2.0.1",
-    "tslint": "^4.5.1",
-    "typescript": "2.3.4",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1",
-    "webpack-merge": "^4.0.0"
-  },
   "dependencies": {
-    "animejs": "^2.0.1",
-    "aphrodite": "^1.1.0",
-    "axios": "^0.24.0",
-    "color": "^1.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "store": "^2.0.4"
+    "phaser": "^3.55.2"
+  },
+  "devDependencies": {
+    "@yandeu/prettier-config": "^0.0.3",
+    "copy-webpack-plugin": "^10.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "javascript-obfuscator": "^3.0.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "serve": "^13.0.2",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.3",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-obfuscator": "^3.5.0",
+    "workbox-webpack-plugin": "^6.4.2"
   }
 }

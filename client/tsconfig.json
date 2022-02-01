@@ -1,14 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "outDir": "lib",
-    "jsx": "react",
-    "strictNullChecks": true,
+    "target": "ES2015",
+    "module": "ES2015",
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "allowJs": true,
+    "allowUnreachableCode": false,
+    "noImplicitAny": false,
     "sourceMap": true,
-    "noUnusedLocals": true,
-    "lib": [
-      "dom",
-      "es2015"
-    ]
-  }
+    "strictPropertyInitialization": false,
+
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
