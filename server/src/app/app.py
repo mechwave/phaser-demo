@@ -4,6 +4,7 @@ from flask import Flask, send_from_directory
 
 
 def internal_server_error(e):
+    print(e)
     return 'oops', 500
 
 
@@ -26,7 +27,7 @@ def get_app(config) -> Flask:
     for blueprint in blueprints:
         app.register_blueprint(blueprint.obj, url_prefix = blueprint.url_prefix)
 
-    app.register_error_handler(Exception, internal_server_error)
+    #app.register_error_handler(Exception, internal_server_error)
 
 
     from sqlalchemy import create_engine

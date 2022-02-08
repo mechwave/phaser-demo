@@ -3,35 +3,55 @@
 class Tile:
     """Tile base class."""
 
-    x_coord: int
-    y_coord: int
-    x_size: int
-    y_size: int
+    x: int
+    y: int
+    w: int
+    h: int
 
-    def __init__(self, x_coord: int, y_coord: int, x_size = 1, y_size = 1):
+    def __init__(self, x: int, y: int, w = 1, h = 1):
         """Init."""
-        self.x_coord = x_coord
-        self.y_coord = y_coord
-        self.x_size = x_size
-        self.y_size = y_size
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
 
     def sum(self, tile: 'Tile'):
         """Scalar sum of two tiles."""
-        return Tile(x_coord = self.x_coord + tile.x_coord, y_coord = self.y_coord + tile.y_coord)
+        if (self.x + tile.x >= 0) and (self.y + tile.y >= 0):
+            return Tile(x = self.x + tile.x, y = self.y + tile.y)
+        else:
+            return None
 
     def neighbors(self):
         """Return tiles array around the current tile."""
-        return [self.sum(x) for x in NEIGHBORS]
+        #return [self.sum(x) for x in NEIGHBORS]
+        array = []
+        for item in NEIGHBORS:
+            if self.sum(item):
+                array.append(self.sum(item))
+        return array
 
     def path_to(self, tile: 'Tile'):
         """Return tiles array represents path to target tile."""
         return None
 
-NEIGHBORS = [Tile(x_coord = 0, y_coord = 1),
-            Tile(x_coord = 1, y_coord = 1),
-            Tile(x_coord = 1, y_coord = 0),
-            Tile(x_coord = 1, y_coord = -1),
-            Tile(x_coord = 0, y_coord = -1),
-            Tile(x_coord = -1, y_coord = -1),
-            Tile(x_coord = -1, y_coord = 0),
-            Tile(x_coord = -1, y_coord = 1)]
+NEIGHBORS = [Tile(x = 0, y = 1),
+            Tile(x = 1, y = 1),
+            Tile(x = 1, y = 0),
+            Tile(x = 1, y = -1),
+            Tile(x = 0, y = -1),
+            Tile(x = -1, y = -1),
+            Tile(x = -1, y = 0),
+            Tile(x = -1, y = 1)]
+
+class MapTile(Tile):
+    terrain: str
+ 
+    def __init__(self, x: int, y: int, terrain: str):
+        """Init."""
+        self.x = x
+        self.y = y
+        self.terrain = terrain
+
+    def set_terrain(self, terrain:str):
+        self.terrain = terrain
