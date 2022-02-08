@@ -7,8 +7,8 @@ from pyrsistent import v
 from ...tools.map_utils import MapTile, Tile
 
 random.seed(version=2)
-max_x = 20
-max_y = 20
+max_x = 100
+max_y = 100
 def clustering_neighbors(array, x, y):
     # 0.75 3
     CLUSTERING_PROBALITY_COEFFICIENT = 0.75
@@ -28,7 +28,7 @@ def clustering_neighbors(array, x, y):
                 array[item.x][item.y] = value
 
 
-def noise(w,h):
+def seed(w,h):
     array = [[0 for x in range(w)] for y in range(h)]
     #seed
     for x in range(w):
@@ -49,7 +49,7 @@ def get_random_map():
     """Get random map."""
     random.seed(version=2)
     w, h = max_x, max_y
-    terrain = noise(w,h)
+    terrain = seed(w,h)
     array = []
     #array = [[Tile(x,y) for x in range(w)] for y in range(h)]
     for x in range(w):

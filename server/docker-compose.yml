@@ -12,11 +12,11 @@ services:
       - "C:/temp/postgres_data:/var/lib/postgresql/data"
   app:
     container_name: application
-    #image: hex_game_constructor:latest
+    image: application:latest
     restart: on-failure
-    build:
-      context: .
-      dockerfile: Dockerfile
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
     depends_on:
       - db
     links:
