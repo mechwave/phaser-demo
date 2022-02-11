@@ -19,8 +19,13 @@ class RandomMap(MethodView):
     @swagger_decorator(response_schema={200: TilesListSchema}, tag_name = "Map")
     def get(self):
         """Get random map."""
-        tiles = map_service.get_random_map()
+        tiles, MAX_X, MAX_Y = map_service.get_random_map()
         result = MapTileSchema().dump(tiles, many=True)
-        return {"tiles": result}
+        return {
+            "tiles": result,
+            "tile_size": 40,
+            "width": MAX_X,
+            "height": MAX_Y
+            }
 
 map_blueprint.add_url_rule('/random', view_func=RandomMap.as_view("random_map"))

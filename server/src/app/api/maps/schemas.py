@@ -18,4 +18,7 @@ class MapTileSchema(Schema):
 class TilesListSchema(Schema):
     """Tiles list schema."""
 
-    tiles = fields.Nested(MapTileSchema, many=True, doc ="Tiles list.")
+    tiles = fields.Nested(MapTileSchema, many=True, doc = "Tiles list.")
+    tile_size = fields.Integer(doc = "Tile size.")
+    width = fields.Integer(doc = "Tile map width.")
+    height = fields.Integer(doc = "Tile map height.")
