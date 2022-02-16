@@ -18,7 +18,8 @@ export default {
       Application: PIXI.Application,
       loader: PIXI.loader,
       Sprite: PIXI.Sprite,
-      tilesArray: null
+      tilesArray: null,
+      miniMap: null
     };
   },
   mounted() {
@@ -76,7 +77,7 @@ export default {
         this.app.ticker.add(function()
         { 
             //entities[1].y += 1;
-            //mm.update(resources.maptiles.data.tiles);
+            mm.update(resources.maptiles.data.tiles);
         });
     })
     this.app.stop();
